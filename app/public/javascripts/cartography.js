@@ -1,5 +1,14 @@
 ﻿var cartography = {};
 
+/**
+* settings function of the eventlistener
+*
+*  @author Matthew, Mackenzie, Max, Michael
+* @param {canvasID} the id of the canvas
+* @param {map} the map itself
+* @param {spriteSheet} the spritesheet with the graphics included
+**/
+
 cartography.settings = function (canvasId, map, spriteSheet)
 {
     this._canvas = document.getElementById(canvasId);
@@ -58,6 +67,14 @@ cartography.debug = {
     mode: "location", // location|distance|weight
 }
 
+/**
+* go function to call the settings on the map
+* @param {elementID} the elements id number
+* @param {map} the map itself
+* @param {spriteSheet} the spritesheet with the graphics included
+*
+**/
+
 cartography.go = function (elementId, map, spriteSheet)
 {
     var version = new cartography.settings(elementId, map, spriteSheet);
@@ -65,6 +82,11 @@ cartography.go = function (elementId, map, spriteSheet)
     version.drawBoard();
 }
 
+/**
+* eventlistener to check if the mouse has been clicked
+* @param {eventInfo} listens to the eventlistner to click
+*
+**/
 cartography.mouseClick = function(eventInfo)
 {
     var mouseCurrentHex = this.getMouseHex(eventInfo);
@@ -74,7 +96,11 @@ cartography.mouseClick = function(eventInfo)
     tile.click();
              
 }
-
+/**
+* eventlistener to check if the mouse has been moved
+* @param {eventInfo} listens to the eventlistner of mouseMove 
+*
+**/
 cartography.mouseMove = function (eventInfo)
 {
     var mouseCurrentHex = this.getMouseHex(eventInfo);
@@ -105,6 +131,11 @@ cartography.mouseMove = function (eventInfo)
     }
 }
 
+/**
+* eventlistener to check if the mouse is no longer on a tile
+* @param {eventInfo} listens to the eventlistner of mouseOut event 
+*
+**/
 cartography.mouseOut = function (eventInfo)
 {
     this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
@@ -130,6 +161,7 @@ cartography.getMouseHex = function(eventInfo)
 
     return hexInfo;
 }
+
 cartography.getHexXY = function (offsetX, offsetY)
 {
     var x, y, hexX, hexY;
@@ -171,6 +203,12 @@ cartography.getHexPos = function (hexX, hexY, rangeFrom)
     return hexInfo;
 }
 
+/**
+* gets the neighboring hexes to wherever the mouse is currently
+* @param {hexInfo} the information of the selected hex used for its position
+* @param {range} the number of hexes around the selected one you want
+* @return {neighbours} the nighboring hexes
+**/
 cartography.getNeighbouringHexs = function (hexInfo, range)
 {
     var hexes = [];
@@ -241,6 +279,13 @@ cartography.drawBoard = function()
     }
 }
 
+/**
+* draws the hexagon at the given coordinates
+* @param {x} the x coordinates of the hexagon
+* @param {y} the y coordinates of the hexagon
+* @param {neighbours} the color to fill the hex with
+* @param {settings} the settings used for the hexagon
+**/
 cartography.drawHexagon = function(x, y, fillColour, fillOpacity, settings)
 {
     this._ctx.fillStyle = fillColour;
