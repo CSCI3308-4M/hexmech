@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: models/user</title>
+    <title>JSDoc: Source: routes/logout.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,133 +17,60 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: models/user</h1>
+    <h1 class="page-title">Source: routes/logout.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+/**
+ * @module routes/logout
+ * @description ExpressJS route for logout page.
+ **/
+const express = require('express');
+const config = require('config');
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Exports User database model.</p></div>
-        
-
-        
-            
+const router = new express.Router();
 
 
+// TODO: We also need to invalidate the token instead of just instructing the
+// browser to delete it.
 
 
+/**
+ * GET logout page.
+ *
+ * Log user out and redirect to the homepage.
+ * @function
+ * @name /logout
+ */
+router.get('/', (req, res) => {
+  res.clearCookie(config.jwtCookieName);
+  res.redirect('/');
+});
 
 
+/**
+ * GET logout page.
+ *
+ * Log user out and redirect to the homepage.
+ * @function
+ * @name /logout
+ */
+router.post('/', (req, res) => {
+  res.clearCookie(config.jwtCookieName);
+  res.redirect('/');
+});
 
 
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_user.js.html">models/user.js</a>, <a href="models_user.js.html#line2">line 2</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-models_user-User.html">User</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = router;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -101,7 +101,167 @@
 
     
 
-    <h4 class="name" id="httpError"><span class="type-signature"></span>httpError<span class="signature">(code)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="getData"><span class="type-signature"></span>getData<span class="signature">()</span><span class="type-signature"> &rarr; {Object|Object|Object|Object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Return basic data for template.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_login.js.html">routes/login.js</a>, <a href="routes_login.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>.title</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>.signupURL</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>.loginURL</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="module:lib/http-error"><span class="type-signature"></span>module:lib/http-error<span class="signature">(code)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
@@ -201,7 +361,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_http-error.js.html">lib/http-error.js</a>, <a href="lib_http-error.js.html#line10">line 10</a>
+        <a href="lib_http-error.js.html">lib/http-error.js</a>, <a href="lib_http-error.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -229,7 +389,7 @@
         
 <div class="param-desc">
     <ul>
-<li>Error with HTTP status code and message.</li>
+<li>Error object with HTTP status code and message.</li>
 </ul>
 </div>
 
@@ -252,6 +412,183 @@
 
 
         
+            
+
+    
+
+    <h4 class="name" id="module:lib/navbar"><span class="type-signature"></span>module:lib/navbar<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Load navbar template variable with text and links.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Request object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Response object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Next middleware function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_navbar.js.html">lib/navbar.js</a>, <a href="lib_navbar.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -267,13 +604,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_express-validators.html">lib/express-validators</a></li><li><a href="module-lib_navbar.html">lib/navbar</a></li><li><a href="module-lib_packageConfig.html">lib/packageConfig</a></li></ul><h3>Namespaces</h3><ul><li><a href="config.html">config</a></li><li><a href="module-lib_express-validators-expressValidators.html">expressValidators</a></li><li><a href="module-lib_packageConfig-packageConfig.html">packageConfig</a></li></ul><h3>Global</h3><ul><li><a href="global.html#httpError">httpError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_express-validators.html">lib/express-validators</a></li><li><a href="module-lib_http-error.html">lib/http-error</a></li><li><a href="module-lib_navbar.html">lib/navbar</a></li><li><a href="module-lib_packageConfig.html">lib/packageConfig</a></li><li><a href="module-models_db.html">models/db</a></li><li><a href="module-models_user.html">models/user</a></li><li><a href="module-routes_index.html">routes/index</a></li></ul><h3>Classes</h3><ul><li><a href="module-models_user-User.html">User</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-lib_express-validators-customValidators.html">customValidators</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getData">getData</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Apr 25 2016 20:19:19 GMT-0600 (MDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Apr 26 2016 11:35:49 GMT-0600 (MDT)
 </footer>
 
 <script> prettyPrint(); </script>
