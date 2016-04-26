@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: lib/packageConfig</title>
+    <title>JSDoc: Module: lib/http-error</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: lib/packageConfig</h1>
+    <h1 class="page-title">Module: lib/http-error</h1>
 
     
 
@@ -38,12 +38,21 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Parses package file and exports an Object representation.</p></div>
-        
 
         
             
 
+    
+
+    <h4 class="name" id="module:lib/http-error"><span class="type-signature"></span>(require("lib/http-error"))<span class="signature">(code)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Return error based on HTTP status code.</p>
+</div>
 
 
 
@@ -52,6 +61,54 @@
 
 
 
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>HTTP status code.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -87,7 +144,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_packageConfig.js.html">lib/packageConfig.js</a>, <a href="lib_packageConfig.js.html#line2">line 2</a>
+        <a href="lib_http-error.js.html">lib/http-error.js</a>, <a href="lib_http-error.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -110,6 +167,30 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>Error object with HTTP status code and message.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -125,13 +206,6 @@
 
      
 
-    
-        <h3 class="subsection-title">Namespaces</h3>
-
-        <dl>
-            <dt><a href="module-lib_packageConfig-packageConfig.html">packageConfig</a></dt>
-            <dd></dd>
-        </dl>
     
 
     
