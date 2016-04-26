@@ -1,0 +1,4 @@
+[submodule "app/doc"]
+	path = app/doc
+    url = git@github.com:CSCI3308-4M/hexmech.git
+    branch = gh-pages
