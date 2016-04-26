@@ -12,9 +12,6 @@ const navbar = require('navbar');
 const expressValidator = require('express-validator');
 const config = require('config');
 
-const routes = require('./routes/index');
-const users = require('./routes/users');
-
 const app = express();
 
 require('./models/db');
@@ -57,8 +54,7 @@ app.use((req, res, next) => {
 });
 
 app.use(navbar);
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', require('./routes/index'));
 app.use('/signup', require('./routes/signup'));
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/logout'));
