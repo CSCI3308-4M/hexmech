@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * @module routes/login
+ * @description ExpressJS route for login page.
+ **/
 const express = require('express');
 const _ = require('underscore');
 const httpError = require('http-error');
@@ -9,7 +13,18 @@ const User = require('../models/user.js');
 const router = new express.Router();
 
 
-// get generic form data.
+/**
+ * @typedef BasicData
+ * @type Object
+ * @property {String} title - The page title.
+ * @property {String} signupURL - URL of signup page.
+ * @property {String} loginURL - URL of login page.
+ */
+
+/**
+ * Return basic data for template.
+ * @return {BasicData}
+ */
 function getData() {
   return {
     title: packageConfig.name,
@@ -19,7 +34,12 @@ function getData() {
 }
 
 
-// get form prefill
+/**
+ * Return prefill object for template.
+ * @param {Object} err - Error object.
+ * @param {Object} post - Object containing parsed form fields.
+ * @return {Object} - Filled form fields (excluding the password field).
+ */
 function getPrefill(err, post) {
   const prefill = {};
   let keys = _.difference(Object.keys(post), Object.keys(err));
@@ -31,7 +51,13 @@ function getPrefill(err, post) {
 }
 
 
-// display flash message
+/**
+ * Re-render page with flash messages (saves form fields).
+ * @param {Object[]} err - Error object.
+ * @param {String} err.msg - Message to display.
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ */
 function flashError(err, req, res) {
   const data = getData();
   data.prefill = getPrefill(err, req.body);
@@ -43,7 +69,12 @@ function flashError(err, req, res) {
 }
 
 
-// validates the signup form (sever side)
+/**
+ * Validates the signup form (server side).
+ *
+ * Stores result in the request object.
+ * @param {Object} req - Request object.
+ */
 function validate(req) {
   req.checkBody({
     displayName: {
@@ -92,7 +123,11 @@ function validate(req) {
 }
 
 
-// save user
+/**
+ * Save user into database.
+ * @param {module:models/user~User} user - Database user object.
+ * @param {Function} next - Generic callback (can be passed error object).
+ */
 function saveUser(user, next) {
   user.save((err) => {
     if (err) {
@@ -106,7 +141,14 @@ function saveUser(user, next) {
 }
 
 
-// register a new user
+/**
+ * Register a new user who sent request.
+ *
+ * User fields given in request body.
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @param {Function} next - Generic callback.
+ */
 function register(req, res, next) {
   // check for existing username
   User.count({ username: req.body.username }, (err, count) => {
@@ -133,7 +175,13 @@ function register(req, res, next) {
 }
 
 
-// GET signup page
+/**
+ * GET signup page.
+ *
+ * Can only respond to HTML request.
+ * @function
+ * @name /signup
+ */
 router.get('/', (req, res, next) => {
   res.format({
     'text/html'() {
@@ -147,7 +195,13 @@ router.get('/', (req, res, next) => {
 });
 
 
-// POST signup page
+/**
+ * POST signup page.
+ *
+ * This registers a new user given the user info supplied in the request body.
+ * @function
+ * @name /signup
+ */
 router.post('/', (req, res, next) => {
   // sanitize the input
   req.sanitizeBody('displayName').trim();

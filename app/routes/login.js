@@ -23,7 +23,6 @@ const router = new express.Router();
  * @property {String} loginURL - URL of login page.
  */
 
-
 /**
  * Return basic data for template.
  * @return {BasicData}
@@ -97,9 +96,10 @@ function generateJWT(req, res, next, user) {
 }
 
 
-// login user
 /**
  * Login user who sent request.
+ *
+ * Username and password given in request object.
  * @param {Object} req - Request object.
  * @param {Object} res - Response object.
  * @param {Function} next - Generic callback.
