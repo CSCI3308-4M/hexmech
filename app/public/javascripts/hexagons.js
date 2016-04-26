@@ -1,4 +1,13 @@
 ﻿
+/**
+* @author Matt, Mackenzie, Michael, Max
+* 
+**/
+
+/**
+* This sets the map up and paints with randomized tiles
+**/
+
 $(document).ready(function ()
 {
     $("#endTurnBtn").button().click(function ()
@@ -72,6 +81,8 @@ $(window).resize(function ()
 {
     cartography.go('hexmap', hexagons.info, hexagons.spriteSheet);
 });
+
+
 
 var hexagons = {
     info: null,

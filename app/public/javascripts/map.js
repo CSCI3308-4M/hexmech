@@ -1,5 +1,10 @@
 ﻿var map = {};
 
+/**
+* authors Matt, Mackenzie, Michael, Max
+* 
+**/
+
 map.settings = function (width, height)
 {
     this._width = width;
@@ -9,6 +14,12 @@ map.settings = function (width, height)
     //functions
     this.getTileAt = map.getTileAt;
 }
+
+/**
+* consturctor function for each of the tiles
+* @param {x} the x position of the tile
+* @param {y} the y position of the tile
+**/
 
 map.tile = function(x, y)
 {
@@ -46,7 +57,7 @@ map.toCube = function ()
     var z = -x-y
     return { x: x, y: y, z: z };
 }
-
+//commenting out this code since we dont need an html dialouge
 /*map.tileClick = function ()
 {
     var id = Math.random().toString().substring(3);
@@ -65,6 +76,10 @@ map.toCube = function ()
     });
 }*/
 
+/**
+* Function to draw a tile at a given location
+* @param {cartography} includes the cartography information to be used in the function
+**/
 map.drawTile = function (cartography)
 {
     var hexTopLeft = this.getLocation(cartography);
@@ -77,6 +92,10 @@ map.drawTile = function (cartography)
         cartography.drawSprite(hexTopLeft.x, hexTopLeft.y, this._settlement.getSprite());
 }
 
+/**
+* Function to get the current location of the the hexagon
+* @param {cartography} includes the cartography information to be used in the function
+**/
 map.getLocation = function (cartography)
 {
     var hexTopLeft = {
