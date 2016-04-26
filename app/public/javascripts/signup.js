@@ -3,6 +3,9 @@ const $ = window.jQuery = require('jquery');
 require('bootstrap');
 require('jquery-validation');
 
+// NOTE: This is page specific and does not include any functions and therefore
+// there is no reason to use JSDoc here or is there any good way to do so.
+
 // wait until the document is loaded before running any javascript
 $(document).ready(() => {
   'use strict';
