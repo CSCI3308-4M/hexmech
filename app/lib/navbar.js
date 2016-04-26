@@ -1,5 +1,15 @@
 'use strict';
+/**
+ * @module lib/navbar
+ **/
 
+/**
+ * Load navbar template variable with text and links.
+ * @function
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @param {Function} next - Next middleware function.
+ */
 module.exports = (req, res, next) => {
   res.locals.navbar = {};
   if (req.user) {
