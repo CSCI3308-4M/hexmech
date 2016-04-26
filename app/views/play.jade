@@ -2,14 +2,15 @@ extends layout
 
 block prescripts
   link(rel='stylesheet', href='/stylesheets/play.css')
-  link(rel='stylesheet', href='css/jquery-ui.min.css')
-  script(src='https://code.jquery.com/jquery-2.2.0.min.js', type='text/javascript')
-  script(src='javascript/jquery-ui.min.js')
-  script(src='javascript/hexagons.js')
-  script(src='javascript/map.js')
-  script(src='javascript/cartography.js')
-  script(src='javascript/population.js')
-  script(src='javascript/resource.js')
+  link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
+  script(src="javascripts/bundles/play.js")
+  script(src="javascripts/bundles/rolldice.js")
+  script(src="javascripts/bundles/libs.js")
+  script(src='javascripts/bundles/hexagons.js')
+  script(src='javascripts/bundles/map.js')
+  script(src='javascripts/bundles/cartography.js')
+  script(src='javascripts/bundles/population.js')
+  script(src='javascripts/bundles/resource.js')
 
 block content
   title HexMech Board Game

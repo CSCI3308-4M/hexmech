@@ -58,7 +58,7 @@ app.use('/', require('./routes/index'));
 app.use('/signup', require('./routes/signup'));
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/logout'));
-app.use('/play', require('./routes/logout'));
+app.use('/play', require('./routes/play'));
 app.use(express.static('public'));
 
 // catch 404 and forward to error handler
