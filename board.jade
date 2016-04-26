@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    style(type='text/css').
+      div.dice{
+      float:left;
+      width:32px;
+      background:#F5F5F5;
+      border:#999 1px solid;
+      padding:10px;
+      font-size:24px;
+      text-align:center;
+      margin:5px;
+      }
+    meta(charset='utf-8')
+    title HexMech Board Game
+    link(href='css/page.css', rel='stylesheet')
+    link(href='css/jquery-ui.min.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-2.2.0.min.js', type='text/javascript')
+    script(src='javascript/jquery-ui.min.js')
+    script.
+      function rollDice(){
+      var die1 = document.getElementById("die1");
+      var die2 = document.getElementById("die2");
+      var status = document.getElementById("status");
+      var d1 = Math.floor(Math.random() * 6) + 1;
+      var d2 = Math.floor(Math.random() * 6) + 1;
+      var diceTotal = d1 + d2;
+      die1.innerHTML = d1;
+      die2.innerHTML = d2;
+      status.innerHTML = "You rolled "+diceTotal+".";
+      }
+    script(src='javascript/hexagons.js')
+    script(src='javascript/map.js')
+    script(src='javascript/cartography.js')
+    script(src='javascript/population.js')
+    script(src='javascript/resource.js')
+  body
+    #die1.dice 0
+    #die2.dice 0
+    button(onclick='rollDice()') Roll Dice
+    h2#status(style='clear:bottom;')
+    .container
+      .header
+        button#endTurnBtn(type='button')
+          span End Turn
+      .mapviewport
+        .content
+          canvas#hexmap(width='1660', height='1500')
+      .footer
