@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * @module models/db
+ * @description Require once to initialize connection with MongoDB.
+ **/
 const mongoose = require('mongoose');
 const mongodbURI = require('mongodb-uri');
 const config = require('config');
