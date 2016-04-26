@@ -1,7 +1,7 @@
 ﻿var resource = {};
 
 /**
-* Resource function to assign grass a color and get its image from the spritesheet
+* Assigns a background color of light green behind grass tiles 
 * @return {grass} returns grass as the name of the tiles resource
 **/
 resource.grass = function ()
@@ -14,7 +14,7 @@ resource.grass = function ()
 }
 
 /**
-* Resource function to assign swamp a color and get its image from the spritesheet
+* Assigns a background color of light green behind Mech titles
 * @return {swamp} returns water as the name of the tiles resource
 **/
 resource.swamp = function ()
@@ -27,7 +27,7 @@ resource.swamp = function ()
 }
 
 /**
-* Resource function to assign water a color and get its image from the spritesheet
+* Assigns a background color of light blue behind water tiles
 * @return {water} returns water as the name of the tiles resource
 **/
 resource.water = function()
@@ -40,7 +40,7 @@ resource.water = function()
 }
 
 /**
-* Resource function to assign forest a color and get its image from the spritesheet
+* Assigns a background color of green behind forest tiles
 * @return {forest} returns forest as the name of the tiles resource
 **/
 resource.forest = function ()
@@ -53,7 +53,7 @@ resource.forest = function ()
 }
 
 /**
-* Resource function to assign mountain a color and get its image from the spritesheet
+* Assigns a background color of brown behind mountain titles 
 * @return {mountain} returns mountain as the name of the tiles resource
 **/
 resource.mountain = function ()

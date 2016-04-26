@@ -36,7 +36,7 @@ $(document).ready(function ()
         road_2: { x: 7, y: 1 }
     }
     hexagons.spriteSheet.img.src = "images/Macs_Graphics.png";
-
+    // Assigns each hexagon a random title
     var tile = new map.tile(0, 0); tile._resource = new resource.grass(); hexagons.info._tiles.push(tile);
     var tile = new map.tile(0, 1); tile._resource = new resource.forest(); hexagons.info._tiles.push(tile);
     var tile = new map.tile(0, 2); tile._resource = new resource.water(); hexagons.info._tiles.push(tile);
