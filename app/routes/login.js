@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * @module routes/login
+ * @description ExpressJS route for login page.
+ **/
 const express = require('express');
 const _ = require('underscore');
 const httpError = require('http-error');
@@ -11,7 +15,19 @@ const User = require('../models/user.js');
 const router = new express.Router();
 
 
-// get generic form data.
+/**
+ * @typedef BasicData
+ * @type Object
+ * @property {String} title - The page title.
+ * @property {String} signupURL - URL of signup page.
+ * @property {String} loginURL - URL of login page.
+ */
+
+
+/**
+ * Return basic data for template.
+ * @return {BasicData}
+ */
 function getData() {
   return {
     title: packageConfig.name,
@@ -21,7 +37,12 @@ function getData() {
 }
 
 
-// get form prefill
+/**
+ * Return prefill object for template.
+ * @param {Object} err - Error object.
+ * @param {Object} post - Object containing parsed form fields.
+ * @return {Object} - Filled form fields (excluding the password field).
+ */
 function getPrefill(err, post) {
   const prefill = {};
   let keys = _.difference(Object.keys(post), Object.keys(err));
@@ -33,7 +54,13 @@ function getPrefill(err, post) {
 }
 
 
-// display flash message
+/**
+ * Re-render page with flash messages (saves form fields).
+ * @param {Object[]} err - Error object.
+ * @param {String} err.msg - Message to display.
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ */
 function flashError(err, req, res) {
   const data = getData();
   data.prefill = getPrefill(err, req.body);
@@ -45,7 +72,13 @@ function flashError(err, req, res) {
 }
 
 
-// generate JWT and store in cookie
+/**
+ * Generate JSON Web Token and store in cookie.
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @param {Function} next - Generic callback.
+ * @param {module:models/user~User} user - Database user object.
+ */
 function generateJWT(req, res, next, user) {
   const options = {
     algorithm: config.jwtAlgorithm,
@@ -65,13 +98,19 @@ function generateJWT(req, res, next, user) {
 
 
 // login user
+/**
+ * Login user who sent request.
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @param {Function} next - Generic callback.
+ */
 function login(req, res, next) {
   User.findOne({ username: req.body.username }, (err, user) => {
     // database error
     if (err) {
       next(err);
     }
-    // TODO: Both failure conditions should return a generic no combination
+    // TODO: Both failure conditions should return a generic no-combination
     // message and should take the same amount of time for security reasons.
     if (!user) {
       flashError([{ msg: 'No user by that name exists.' }], req, res);
@@ -88,7 +127,13 @@ function login(req, res, next) {
 }
 
 
-// GET login page
+/**
+ * GET login page.
+ *
+ * Can only respond to HTML request.
+ * @function
+ * @name /login
+ */
 router.get('/', (req, res, next) => {
   res.format({
     'text/html'() {
@@ -102,7 +147,13 @@ router.get('/', (req, res, next) => {
 });
 
 
-// POST login page
+/**
+ * POST login page.
+ *
+ * This logs in the username/password combination given in the request body.
+ * @function
+ * @name /login
+ */
 router.post('/', (req, res, next) => {
   login(req, res, (err) => {
     if (err) {
