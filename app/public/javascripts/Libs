@@ -1,1 +1,1 @@
-LIBS = jquery bootstrap jquery-validation
+LIBS = jquery bootstrap jquery-validation jquery-ui

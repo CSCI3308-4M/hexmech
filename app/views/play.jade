@@ -1,0 +1,30 @@
+extends layout
+
+block prescripts
+  link(rel='stylesheet', href='/stylesheets/play.css')
+  link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
+
+block content
+  title HexMech Board Game
+  #die1.dice 0
+  #die2.dice 0
+  button(onclick='rollDice()') Roll Dice
+  h2#status(style='clear:bottom;')
+  .container
+    .header
+      button#endTurnBtn(type='button')
+        span End Turn
+    .mapviewport
+      .content
+        canvas#hexmap(width='1660', height='1500')
+    .footer
+
+block postscripts
+  script(src="javascripts/bundles/libs.js")
+  script(src="javascripts/rolldice.js")
+  script(src='javascripts/map.js')
+  script(src='javascripts/hexagons.js')
+  script(src='javascripts/cartography.js')
+  script(src='javascripts/population.js')
+  script(src='javascripts/resource.js')
+
