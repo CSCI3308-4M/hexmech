@@ -11,6 +11,7 @@ bootstrap.min.css:
 .PHONY: jquery-ui.min.css
 jquery-ui.min.css:
 	cp ../../node_modules/jquery-ui/themes/$(JQUERYUI_THEME)/jquery-ui.css ./
+	cp -R ../../node_modules/jquery-ui/themes/$(JQUERYUI_THEME)/images ./
 
 clean:
 	rm *.min.css*
