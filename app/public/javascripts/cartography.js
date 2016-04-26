@@ -146,8 +146,8 @@ cartography.getMouseHex = function(eventInfo)
 {
     var x, y, hexX, hexY;
 
-    x = eventInfo.offsetX || eventInfo.layerX;
-    y = eventInfo.offsetY || eventInfo.layerY;
+    x = (eventInfo.offsetX || eventInfo.layerX)/0.7;
+    y = (eventInfo.offsetY || eventInfo.layerY)/0.7;
 
     hexY = Math.floor(y / (this._hexHeight + this._sideLength));
     hexX = Math.floor((x - (hexY % 2) * this._hexRadius) / this._hexRectangleWidth);
