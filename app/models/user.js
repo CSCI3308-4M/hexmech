@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * @module models/user
+ * @description Exports User database model.
+ **/
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const config = require('config');
@@ -33,7 +37,13 @@ const userSchema = new Schema({
 });
 
 
-// set password asynchronously
+/**
+ * Set password of user asynchronously.
+ * @function setPassword
+ * @memberof module:models/user~User
+ * @param {String} password - Plain text password.
+ * @param {Function} next - Generic next callback.
+ */
 userSchema.methods.setPassword = function setPassword(password, next) {
   bcrypt.hash(password, config.bcryptStrength, (err, res) => {
     if (err) {
@@ -46,13 +56,31 @@ userSchema.methods.setPassword = function setPassword(password, next) {
 };
 
 
-// set password synchronously
+/**
+ * Set password of user synchronously.
+ * @function setPasswordSync
+ * @memberof module:models/user~User
+ * @param {String} password - Plain text password.
+ */
 userSchema.methods.setPasswordSync = function setPasswordSync(password) {
   this.password = bcrypt.hashSync(password, config.bcryptStrength);
 };
 
 
-// verify password asynchronously
+/**
+ * Check password callback.
+ * @callback module:models/user~User~checkPasswordCallback
+ * @param {Bool} res - True if password matches.
+ */
+
+/**
+ * Verify password of user asynchronously.
+ * @function checkPassword
+ * @memberof module:models/user~User
+ * @param {String} password - Plain text password.
+ * @param {module:models/user~User~checkPasswordCallback} next - Response
+ *                                                               callback.
+ */
 userSchema.methods.checkPassword = function checkPassword(password, next) {
   bcrypt.compare(password, this.password, (err, res) => {
     if (err) {
@@ -63,7 +91,13 @@ userSchema.methods.checkPassword = function checkPassword(password, next) {
 };
 
 
-// verify password synchronously
+/**
+ * Verify password of user synchronously.
+ * @function checkPasswordSync
+ * @memberof module:models/user~User
+ * @param {String} password - Plain text password.
+ * @return {Bool} - True if password matches.
+ */
 userSchema.methods.checkPasswordSync = function checkPasswordSync(password) {
   return bcrypt.compareSync(password, this.password);
 };
@@ -81,7 +115,19 @@ userSchema.pre('save', function preSave(next) {
 });
 
 
-// make user model
+/**
+ * Make new user.
+ * @constructor
+ * @param {Object} data - Initial user data.
+ * @param {String} data.displayName - User display name.
+ * @param {String} data.username - Username.
+ * @param {String} data.password - Hashed password.
+ * @param {String} data.email - Email address.
+ * @param {Bool} data.admin - Is user an administrator.
+ * @param {Date} data.created - Date user was created.
+ * @param {Date} data.updated - Date user was last updated.
+ * @return {User} - New user model.
+ */
 const User = mongoose.model('User', userSchema);
 
 
