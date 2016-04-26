@@ -1,7 +1,7 @@
 ESLINT = ./node_modules/.bin/eslint
 
 .PHONY: all
-all: install javascripts stylesheets
+all: install javascripts stylesheets doc
 
 .PHONY: prepublish
 prebublish: javascripts stylesheets lint
@@ -9,6 +9,10 @@ prebublish: javascripts stylesheets lint
 .PHONY: install
 install:
 	npm install
+
+.PHONY: doc
+doc:
+	./node_modules/.bin/jsdoc -c jsdoc.json
 
 .PHONY: lint
 lint:
