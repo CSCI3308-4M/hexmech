@@ -78,6 +78,9 @@ $(document).ready(function ()
     var docWidth = $(document).width();
     var docHeight = $(document).height();
     $("canvas").attr("width", docWidth).attr("height", docHeight);
+    canvas = document.getElementById("hexmap");
+    ctx = canvas.getContext("2d");
+    ctx.scale(0.7, 0.7);
 
     
     cartography.go('hexmap', hexagons.info, hexagons.spriteSheet);

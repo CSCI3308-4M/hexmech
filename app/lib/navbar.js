@@ -11,6 +11,7 @@
  * @param {Function} next - Next middleware function.
  */
 module.exports = (req, res, next) => {
+  res.locals.title = "HexMech";
   res.locals.navbar = {};
   if (req.user) {
     res.locals.navbar.left = [
