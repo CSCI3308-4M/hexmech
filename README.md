@@ -11,8 +11,13 @@
 
 
 # Repo organization  
-Images can be found in hexmech/app/public/images  
-    
+Directly in the app folder, you can find our Makefile, our README, and several important subfolders.  
+app/public contains public-facing resources including images, javascript that generates the content the user sees, and the stylesheets.  
+app/lib contains our libraries.  
+app/routes contains the .js files required for navigation.  
+app/test contains the automated tests.  
+app/views contains all the .jade files required to serve the content on each specific page
+
 #Where to find the docs  
 Our current build of the docs can be found at http://csci3308-4m.github.io/hexmech/index.html  
 
