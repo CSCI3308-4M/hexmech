@@ -35,5 +35,5 @@ We have included a Makefile in the app directory. In a terminal, navigate to the
 
 #How to test the code  
 To run our automated unit tests, download this repository and run the following commands (from the `app` directory):  
->npm install  
->npm start  
+>make
+>make test
