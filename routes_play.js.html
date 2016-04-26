@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/navbar.js</title>
+    <title>JSDoc: Source: routes/play.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/navbar.js</h1>
+    <h1 class="page-title">Source: routes/play.js</h1>
 
     
 
@@ -28,36 +28,34 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 /**
- * @module lib/navbar
+ * @module routes/play
+ * @description ExpressJS route for the HexMech game.
  **/
+const express = require('express');
+const httpError = require('http-error');
+const router = new express.Router();
 
 /**
- * Load navbar template variable with text and links.
+ * GET game page.
+ *
+ * Can only respond to HTML.
  * @function
- * @param {Object} req - Request object.
- * @param {Object} res - Response object.
- * @param {Function} next - Next middleware function.
+ * @name /play
  */
-module.exports = (req, res, next) => {
-  res.locals.title = "HexMech";
-  res.locals.navbar = {};
-  if (req.user) {
-    res.locals.navbar.left = [
-      { text: 'Play', href: 'play' },
-    ];
-    res.locals.navbar.right = [
-      { text: `Hello ${req.user.displayName}`, href: '' },
-      { text: 'Log Out', href: 'logout' },
-    ];
-  } else {
-    res.locals.navbar.left = [];
-    res.locals.navbar.right = [
-      { text: 'Log In', href: 'login' },
-      { text: 'Sign Up', href: 'signup' },
-    ];
-  }
-  next();
-};
+router.get('/', (req, res, next) => {
+  // display home page
+  res.format({
+    'text/html'() {
+      res.render('play');
+    },
+    default() {
+      // log the request and respond with 406
+      next(httpError(406));
+    },
+  });
+});
+
+module.exports = router;
 </code></pre>
         </article>
     </section>

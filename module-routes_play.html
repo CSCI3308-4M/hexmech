@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/navbar.js</title>
+    <title>JSDoc: Module: routes/play</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,50 +17,213 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/navbar.js</h1>
+    <h1 class="page-title">Module: routes/play</h1>
 
     
 
 
 
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
-/**
- * @module lib/navbar
- **/
 
-/**
- * Load navbar template variable with text and links.
- * @function
- * @param {Object} req - Request object.
- * @param {Object} res - Response object.
- * @param {Function} next - Next middleware function.
- */
-module.exports = (req, res, next) => {
-  res.locals.title = "HexMech";
-  res.locals.navbar = {};
-  if (req.user) {
-    res.locals.navbar.left = [
-      { text: 'Play', href: 'play' },
-    ];
-    res.locals.navbar.right = [
-      { text: `Hello ${req.user.displayName}`, href: '' },
-      { text: 'Log Out', href: 'logout' },
-    ];
-  } else {
-    res.locals.navbar.left = [];
-    res.locals.navbar.right = [
-      { text: 'Log In', href: 'login' },
-      { text: 'Sign Up', href: 'signup' },
-    ];
-  }
-  next();
-};
-</code></pre>
-        </article>
-    </section>
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>ExpressJS route for the HexMech game.</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_play.js.html">routes/play.js</a>, <a href="routes_play.js.html#line2">line 2</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~/play"><span class="type-signature">(inner) </span>/play<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>GET game page.</p>
+<p>Can only respond to HTML.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_play.js.html">routes/play.js</a>, <a href="routes_play.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

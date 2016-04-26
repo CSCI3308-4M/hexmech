@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/navbar.js</title>
+    <title>JSDoc: Source: public/javascripts/resource.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/navbar.js</h1>
+    <h1 class="page-title">Source: public/javascripts/resource.js</h1>
 
     
 
@@ -26,38 +26,73 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
-/**
- * @module lib/navbar
- **/
+            <pre class="prettyprint source linenums"><code>﻿var resource = {};
 
 /**
- * Load navbar template variable with text and links.
- * @function
- * @param {Object} req - Request object.
- * @param {Object} res - Response object.
- * @param {Function} next - Next middleware function.
- */
-module.exports = (req, res, next) => {
-  res.locals.title = "HexMech";
-  res.locals.navbar = {};
-  if (req.user) {
-    res.locals.navbar.left = [
-      { text: 'Play', href: 'play' },
-    ];
-    res.locals.navbar.right = [
-      { text: `Hello ${req.user.displayName}`, href: '' },
-      { text: 'Log Out', href: 'logout' },
-    ];
-  } else {
-    res.locals.navbar.left = [];
-    res.locals.navbar.right = [
-      { text: 'Log In', href: 'login' },
-      { text: 'Sign Up', href: 'signup' },
-    ];
-  }
-  next();
-};
+* Assigns a background color of light green behind grass tiles 
+* @return {grass} returns grass as the name of the tiles resource
+**/
+resource.grass = function ()
+{
+    this._colour = "lightgreen";
+    this.getSprite = function ()
+    {
+        return "grass";
+    }
+}
+
+/**
+* Assigns a background color of light green behind Mech titles
+* @return {swamp} returns water as the name of the tiles resource
+**/
+resource.swamp = function ()
+{
+    this._colour = "lightgreen";
+    this.getSprite = function ()
+    {
+        return "swamp";
+    }
+}
+
+/**
+* Assigns a background color of light blue behind water tiles
+* @return {water} returns water as the name of the tiles resource
+**/
+resource.water = function()
+{
+    this._colour = "lightblue";
+    this.getSprite = function ()
+    {
+        return "water";
+    }
+}
+
+/**
+* Assigns a background color of green behind forest tiles
+* @return {forest} returns forest as the name of the tiles resource
+**/
+resource.forest = function ()
+{
+    this._colour = "green";
+    this.getSprite = function ()
+    {
+        return "forest";
+    }
+}
+
+/**
+* Assigns a background color of brown behind mountain titles 
+* @return {mountain} returns mountain as the name of the tiles resource
+**/
+resource.mountain = function ()
+{
+    this._colour = "#817e6d";
+    this.getSprite = function ()
+    {
+        return "mountain";
+    }
+}
+
 </code></pre>
         </article>
     </section>
