@@ -16,7 +16,7 @@ app/public contains public-facing resources including images, javascript that ge
 app/lib contains our libraries.  
 app/routes contains the .js files required for navigation.  
 app/test contains the automated tests.  
-app/views contains all the .jade files required to serve the content on each specific page
+app/views contains all the .jade files required to serve the content on each specific page  
 
 #Where to find the docs  
 Our current build of the docs can be found at http://csci3308-4m.github.io/hexmech/index.html  
@@ -31,7 +31,7 @@ We have included a Makefile in the app directory. In a terminal, navigate to the
 
 #How to run the code  
     In the app directory, run the command:  
->npm start
+>npm start  
 
 #How to test the code  
 To run our automated unit tests, download this repository and run the following commands (from the `app` directory):  
