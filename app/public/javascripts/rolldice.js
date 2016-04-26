@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-div.dice{
-	float:left;
-	width:32px;
-	background:#F5F5F5;
-	border:#999 1px solid;
-	padding:10px;
-	font-size:24px;
-	text-align:center;
-	margin:5px;
-}
-</style>
-<script>
 function rollDice(){
     var die1 = document.getElementById("die1");
     var die2 = document.getElementById("die2");
@@ -28,12 +12,3 @@ function rollDice(){
         status.innerHTML += " DOUBLES! You get a free turn!!";
     }
 }
-</script>
-</head>
-<body>
-<div id="die1" class="dice">0</div>
-<div id="die2" class="dice">0</div>
-<button onclick="rollDice()">Roll Dice</button>
-<h2 id="status" style="clear:left;"></h2>
-</body>
-</html>
