@@ -1,4 +1,8 @@
 'use strict';
+/**
+ * @module routes/logout
+ * @description ExpressJS route for logout page.
+ **/
 const express = require('express');
 const config = require('config');
 
@@ -9,14 +13,26 @@ const router = new express.Router();
 // browser to delete it.
 
 
-// GET login page
+/**
+ * GET logout page.
+ *
+ * Log user out and redirect to the homepage.
+ * @function
+ * @name /logout
+ */
 router.get('/', (req, res) => {
   res.clearCookie(config.jwtCookieName);
   res.redirect('/');
 });
 
 
-// POST login page
+/**
+ * GET logout page.
+ *
+ * Log user out and redirect to the homepage.
+ * @function
+ * @name /logout
+ */
 router.post('/', (req, res) => {
   res.clearCookie(config.jwtCookieName);
   res.redirect('/');
