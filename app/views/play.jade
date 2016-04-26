@@ -3,14 +3,6 @@ extends layout
 block prescripts
   link(rel='stylesheet', href='/stylesheets/play.css')
   link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
-  script(src="javascripts/bundles/play.js")
-  script(src="javascripts/bundles/rolldice.js")
-  script(src="javascripts/bundles/libs.js")
-  script(src='javascripts/bundles/hexagons.js')
-  script(src='javascripts/bundles/map.js')
-  script(src='javascripts/bundles/cartography.js')
-  script(src='javascripts/bundles/population.js')
-  script(src='javascripts/bundles/resource.js')
 
 block content
   title HexMech Board Game
@@ -28,4 +20,12 @@ block content
     .footer
 
 block postscripts
+  script(src="javascripts/bundles/libs.js")
+  script(src="javascripts/bundles/play.js")
+  script(src="javascripts/rolldice.js")
+  script(src='javascripts/map.js')
+  script(src='javascripts/hexagons.js')
+  script(src='javascripts/cartography.js')
+  script(src='javascripts/population.js')
+  script(src='javascripts/resource.js')
 

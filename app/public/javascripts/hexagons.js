@@ -8,6 +8,11 @@
 * This sets the map up and paints with randomized tiles
 **/
 
+
+const $ = window.jQuery = require('jquery');
+require('jquery-ui');
+
+
 $(document).ready(function ()
 {
     $("#endTurnBtn").button().click(function ()
